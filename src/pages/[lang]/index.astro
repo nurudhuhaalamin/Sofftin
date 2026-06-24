@@ -28,16 +28,16 @@ const advantages = [
 
 const testimonials = [
   {
-    id: { quote: "Tidur jadi jauh lebih nyenyak, persis seperti di hotel. Bantalnya empuk tapi tetap menopang.", name: "Rani P.", role: "Pelanggan" },
-    en: { quote: "My sleep is so much better now, just like a hotel. The pillow is soft yet supportive.", name: "Rani P.", role: "Customer" },
+    id: { quote: "Leher saya tidak lagi pegal saat bangun. Bantalnya benar-benar mengikuti bentuk kepala — rasanya seperti tidur di hotel.", name: "Rani P.", role: "Pelanggan di Jakarta" },
+    en: { quote: "My neck no longer aches in the morning. The pillow truly contours to my head — it feels like sleeping at a hotel.", name: "Rani P.", role: "Customer in Jakarta" },
   },
   {
-    id: { quote: "Kualitasnya premium dan pemesanan lewat WhatsApp sangat cepat dan ramah. Recommended!", name: "Dimas A.", role: "Pelanggan" },
-    en: { quote: "Premium quality and ordering via WhatsApp was fast and friendly. Recommended!", name: "Dimas A.", role: "Customer" },
+    id: { quote: "Sejak menaruh gulingnya di antara lutut, tidur menyamping jadi jauh lebih nyaman dan pinggang tidak mudah sakit.", name: "Sinta W.", role: "Pelanggan di Bandung" },
+    en: { quote: "Since placing the bolster between my knees, side sleeping is far more comfortable and my lower back no longer aches.", name: "Sinta W.", role: "Customer in Bandung" },
   },
   {
-    id: { quote: "Guling memory foam-nya bikin posisi tidur lebih rileks. Bahan adem dan tidak bau.", name: "Sinta W.", role: "Pelanggan" },
-    en: { quote: "The memory foam bolster makes my sleep position so relaxed. Cool material, no odor.", name: "Sinta W.", role: "Customer" },
+    id: { quote: "Kualitasnya terasa premium dan pemesanan lewat WhatsApp cepat serta ramah. Sangat memuaskan.", name: "Dimas A.", role: "Pelanggan di Surabaya" },
+    en: { quote: "The quality feels genuinely premium and ordering via WhatsApp was fast and friendly. Very satisfying.", name: "Dimas A.", role: "Customer in Surabaya" },
   },
 ];
 
@@ -92,10 +92,10 @@ const productsHref = localizePath("/produk", lang);
   <!-- KEUNGGULAN — strip 5 item mengambang menumpuk hero, scroll horizontal di HP -->
   <section id="keunggulan" class="container-soft scroll-mt-24">
     <div class="relative z-10 -mt-12 md:-mt-16 md:overflow-hidden md:rounded-3xl md:border md:border-brand-100 md:bg-white md:shadow-[var(--shadow-soft)]">
-      <div class="no-scrollbar flex snap-x snap-mandatory gap-4 overflow-x-auto px-1 py-1 md:gap-0 md:px-0 md:py-0 md:snap-none">
+      <div class="no-scrollbar -mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 py-1 md:mx-0 md:gap-0 md:px-0 md:py-0 md:snap-none">
       {
         advantages.map((a) => (
-          <div class={`shrink-0 basis-full snap-center rounded-2xl bg-white px-5 py-8 text-center shadow-sm ring-1 ring-brand-100 sm:basis-[46%] md:flex-1 md:basis-0 md:rounded-none md:bg-transparent md:shadow-none md:ring-0 ${a.key !== "1" ? "md:border-l md:border-brand-100" : ""}`}>
+          <div class={`shrink-0 basis-[85%] snap-start rounded-2xl bg-white px-5 py-8 text-center shadow-sm ring-1 ring-brand-100 sm:basis-[46%] md:flex-1 md:basis-0 md:rounded-none md:bg-transparent md:shadow-none md:ring-0 ${a.key !== "1" ? "md:border-l md:border-brand-100" : ""}`}>
             <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-50 text-brand-500">
               {a.icon === "foam" && (
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="9" rx="4"/><path d="M6 8V7a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3v1"/></svg>

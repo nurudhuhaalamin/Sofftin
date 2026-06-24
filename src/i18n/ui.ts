@@ -33,27 +33,27 @@ export const ui = {
     "hero.badge": "HOTEL LUXURY SLEEP EXPERIENCE",
     "hero.title": "Tidur Berkualitas, Layanan Berkelas",
     "hero.subtitle":
-      "Bantal memory foam dan guling premium dirancang khusus untuk menghadirkan kenyamanan tidur standar hotel mewah di rumah Anda.",
+      "Bantal dan guling memory foam premium yang mengikuti lekuk tubuh Anda — menjaga leher dan tulang belakang tetap sejajar untuk tidur lebih nyenyak dan bebas pegal, dengan kenyamanan khas hotel bintang lima.",
 
     // Keunggulan
     "adv.title": "Kenapa Memilih Softtin",
-    "adv.subtitle": "Kualitas standar hotel bintang lima untuk istirahat terbaik Anda.",
-    "adv.1.title": "Memory Foam Premium",
-    "adv.1.desc": "Busa berkualitas tinggi yang menyesuaikan bentuk kepala dan leher.",
-    "adv.2.title": "Higienis & Anti-bakteri",
-    "adv.2.desc": "Material bersih, anti-tungau, dan ramah untuk kulit sensitif.",
-    "adv.3.title": "Standar Hotel Mewah",
-    "adv.3.desc": "Dipercaya untuk menghadirkan pengalaman tidur kelas hotel.",
-    "adv.4.title": "Garansi & Layanan",
-    "adv.4.desc": "Garansi produk dan layanan pelanggan yang ramah via WhatsApp.",
+    "adv.subtitle": "Dirancang untuk menyangga tubuh Anda dan menghadirkan istirahat yang benar-benar memulihkan.",
+    "adv.1.title": "Topangan Mengikuti Tubuh",
+    "adv.1.desc": "Memory foam mengikuti lekuk kepala dan leher, menjaga tulang belakang tetap sejajar sepanjang malam.",
+    "adv.2.title": "Meredakan Titik Tekan",
+    "adv.2.desc": "Tekanan tubuh terdistribusi merata sehingga otot leher dan bahu rileks — bangun terasa segar tanpa pegal.",
+    "adv.3.title": "Higienis & Anti-Tungau",
+    "adv.3.desc": "Struktur busa yang padat menahan debu, tungau, dan bakteri; ramah bagi kulit sensitif dan penderita alergi.",
+    "adv.4.title": "Kenyamanan Standar Hotel",
+    "adv.4.desc": "Kepadatan dan kelembutan yang terukur menghadirkan rasa tidur di hotel bintang lima, malam demi malam.",
     "adv.5.title": "Awet & Tahan Lama",
-    "adv.5.desc": "Busa berkualitas yang mempertahankan bentuk dalam pemakaian jangka panjang.",
+    "adv.5.desc": "Busa berkualitas yang kembali ke bentuk semula dan tetap nyaman untuk pemakaian harian bertahun-tahun.",
 
     // Produk unggulan
     "products.featuredLabel": "PRODUK UNGGULAN",
     "products.featuredTitle": "Bantal & Guling Luxury",
     "products.featuredSubtitle":
-      "Dibuat dari memory foam berkualitas tinggi untuk kenyamanan tidur maksimal setiap malam.",
+      "Dirancang dari memory foam berkualitas tinggi untuk menyangga tubuh dengan sempurna — tidur lebih nyenyak setiap malam.",
     "products.allTitle": "Semua Produk",
     "products.allSubtitle": "Pilih produk yang paling sesuai dengan kebutuhan tidur Anda.",
     "products.empty": "Belum ada produk pada kategori ini.",
@@ -70,12 +70,12 @@ export const ui = {
     // CTA bawah
     "cta.bottomTitle": "Siap Tidur Lebih Berkualitas?",
     "cta.bottomSubtitle":
-      "Pesan langsung lewat WhatsApp. Tim kami siap membantu memilihkan produk terbaik untuk Anda.",
+      "Konsultasikan kebutuhan tidur Anda langsung lewat WhatsApp. Tim kami siap membantu memilih bantal atau guling yang paling pas untuk Anda.",
 
     // Tentang
     "about.title": "Tentang Softtin",
     "about.body":
-      "Softtin lahir dari satu keyakinan sederhana: setiap orang berhak atas tidur berkualitas. Kami menghadirkan bantal dan guling memory foam berstandar hotel mewah, dibuat dengan material premium yang higienis dan tahan lama. Setiap produk dirancang untuk menopang kepala, leher, dan tubuh Anda dengan sempurna — agar setiap malam terasa seperti menginap di hotel bintang lima.",
+      "Softtin lahir dari satu keyakinan sederhana: tidur berkualitas adalah hak setiap orang. Kami menghadirkan bantal dan guling memory foam berstandar hotel mewah — dirancang untuk mengikuti lekuk tubuh, menjaga kesejajaran leher dan tulang belakang, serta meredakan titik-titik tekan agar Anda bangun lebih segar. Dibuat dari material premium yang higienis dan tahan lama, setiap produk Softtin menghadirkan ketenangan tidur kelas bintang lima ke kamar Anda.",
 
     // Kontak
     "contact.title": "Hubungi Kami",
@@ -119,27 +119,27 @@ export const ui = {
     "hero.badge": "HOTEL LUXURY SLEEP EXPERIENCE",
     "hero.title": "Quality Sleep, Premium Service",
     "hero.subtitle":
-      "Premium memory foam pillows and bolsters designed to bring luxury-hotel sleep comfort right into your home.",
+      "Premium memory foam pillows and bolsters that contour to your body — keeping your neck and spine aligned for deeper, ache-free sleep, with signature five-star hotel comfort.",
 
     // Advantages
     "adv.title": "Why Choose Softtin",
-    "adv.subtitle": "Five-star hotel quality for your best rest.",
-    "adv.1.title": "Premium Memory Foam",
-    "adv.1.desc": "High-quality foam that adapts to the shape of your head and neck.",
-    "adv.2.title": "Hygienic & Anti-bacterial",
-    "adv.2.desc": "Clean, dust-mite resistant material, friendly for sensitive skin.",
-    "adv.3.title": "Luxury Hotel Standard",
-    "adv.3.desc": "Trusted to deliver a true hotel-class sleep experience.",
-    "adv.4.title": "Warranty & Service",
-    "adv.4.desc": "Product warranty and friendly customer service via WhatsApp.",
+    "adv.subtitle": "Engineered to support your body and deliver truly restorative rest.",
+    "adv.1.title": "Body-Contouring Support",
+    "adv.1.desc": "Memory foam follows the curve of your head and neck, keeping your spine aligned all night.",
+    "adv.2.title": "Pressure-Point Relief",
+    "adv.2.desc": "Weight is distributed evenly so neck and shoulder muscles relax — wake up fresh, not stiff.",
+    "adv.3.title": "Hygienic & Dust-Mite Resistant",
+    "adv.3.desc": "The dense foam structure resists dust, mites, and bacteria; friendly for sensitive skin and allergy sufferers.",
+    "adv.4.title": "Hotel-Grade Comfort",
+    "adv.4.desc": "Carefully tuned density and softness bring a five-star hotel feel, night after night.",
     "adv.5.title": "Durable & Long-lasting",
-    "adv.5.desc": "Quality foam that keeps its shape through long-term use.",
+    "adv.5.desc": "Quality foam that springs back to shape and stays comfortable through years of daily use.",
 
     // Featured products
     "products.featuredLabel": "FEATURED PRODUCTS",
     "products.featuredTitle": "Luxury Pillows & Bolsters",
     "products.featuredSubtitle":
-      "Made from high-quality memory foam for maximum sleeping comfort every night.",
+      "Engineered from high-quality memory foam to support your body perfectly — for deeper sleep every night.",
     "products.allTitle": "All Products",
     "products.allSubtitle": "Choose the product that best fits your sleep needs.",
     "products.empty": "No products in this category yet.",
@@ -156,12 +156,12 @@ export const ui = {
     // Bottom CTA
     "cta.bottomTitle": "Ready for Better Quality Sleep?",
     "cta.bottomSubtitle":
-      "Order directly via WhatsApp. Our team is ready to help you pick the best product.",
+      "Tell us about your sleep needs directly via WhatsApp. Our team is ready to help you choose the pillow or bolster that fits you best.",
 
     // About
     "about.title": "About Softtin",
     "about.body":
-      "Softtin was born from one simple belief: everyone deserves quality sleep. We bring luxury-hotel-standard memory foam pillows and bolsters, crafted from premium, hygienic, and durable materials. Every product is designed to perfectly support your head, neck, and body — so every night feels like a stay at a five-star hotel.",
+      "Softtin was born from one simple belief: quality sleep is everyone's right. We craft luxury-hotel-standard memory foam pillows and bolsters — designed to contour to your body, keep your neck and spine aligned, and relieve pressure points so you wake up fresher. Made from premium, hygienic, and durable materials, every Softtin product brings five-star calm to your bedroom.",
 
     // Contact
     "contact.title": "Contact Us",
