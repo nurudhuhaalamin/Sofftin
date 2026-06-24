@@ -1,6 +1,7 @@
 {
   "category": "bantal",
-  "price": 699000,
+  "price": 89900,
+  "originalPrice": 249900,
   "images": ["bantal-memory-foam-luxury.jpg"],
   "featured": true,
   "order": 1,

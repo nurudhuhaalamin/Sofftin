@@ -14,6 +14,8 @@ const products = defineCollection({
     category: z.string(),
     // Harga dalam Rupiah (angka saja, tanpa titik). Contoh: 699000
     price: z.number(),
+    // (Opsional) Harga asli sebelum diskon — bila diisi, tampil dicoret di atas harga.
+    originalPrice: z.number().optional(),
     // Nama file gambar di folder public/products/. Yang pertama jadi gambar utama.
     images: z.array(z.string()).default([]),
     // Tampilkan di bagian "produk unggulan" pada Beranda?

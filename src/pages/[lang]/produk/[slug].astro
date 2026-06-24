@@ -28,6 +28,7 @@ const d = product.data;
 
 const name = d.name[lang];
 const price = formatPrice(d.price);
+const original = d.originalPrice ? formatPrice(d.originalPrice) : null;
 const image = d.images[0] ? `/products/${d.images[0]}` : "/products/placeholder.svg";
 const specs = d.specs?.[lang] ?? [];
 const orderHref = waLink(`${ui[lang]["wa.orderPrefix"]} ${name} (${price})`);
@@ -54,7 +55,10 @@ const related = (await getCollection("products"))
     <div class="flex flex-col">
       <h1 class="text-3xl font-extrabold text-brand-900 md:text-4xl">{name}</h1>
       {d.tagline && <p class="mt-2 text-brand-700/80">{d.tagline[lang]}</p>}
-      <p class="mt-5 text-3xl font-extrabold text-brand-600">{price}</p>
+      <div class="mt-5 flex flex-wrap items-baseline gap-x-3">
+        {original && <span class="text-xl font-medium text-brand-400 line-through">{original}</span>}
+        <span class="text-3xl font-extrabold text-brand-600">{price}</span>
+      </div>
       <p class="mt-5 leading-relaxed text-brand-800/90">{d.description[lang]}</p>
 
       {
