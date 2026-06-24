@@ -46,8 +46,8 @@ const productsHref = localizePath("/produk", lang);
 ---
 
 <Layout lang={lang} title={t("hero.title")} description={t("hero.subtitle")} transparentHeader={true}>
-  <!-- HERO — foto full-bleed jadi background, teks putih di atasnya -->
-  <section class="relative flex min-h-[600px] items-center md:min-h-screen">
+  <!-- HERO — foto background rasio landscape tetap (tidak ikut tinggi layar) -->
+  <section class="relative flex min-h-[520px] items-center md:h-[600px] md:min-h-0 lg:h-[680px]">
     <!-- Foto background -->
     <img
       src="/products/guling-lifestyle.jpg"
@@ -63,7 +63,7 @@ const productsHref = localizePath("/produk", lang);
         <span class="inline-block rounded-full bg-white/15 px-4 py-1.5 text-xs font-bold tracking-wider backdrop-blur-sm">
           {t("hero.badge")}
         </span>
-        <h1 class="mt-5 text-4xl font-extrabold leading-tight sm:text-5xl lg:text-6xl">
+        <h1 class="mt-5 text-3xl font-extrabold leading-tight sm:text-4xl md:text-5xl lg:text-6xl">
           {t("hero.title")}
         </h1>
         <p class="mt-5 max-w-xl text-base text-white/85 md:text-lg">
@@ -91,11 +91,11 @@ const productsHref = localizePath("/produk", lang);
 
   <!-- KEUNGGULAN — strip 5 item mengambang menumpuk hero, scroll horizontal di HP -->
   <section id="keunggulan" class="container-soft scroll-mt-24">
-    <div class="relative z-10 -mt-10 overflow-hidden rounded-3xl border border-brand-100 bg-white shadow-[var(--shadow-soft)] md:-mt-16">
-      <div class="no-scrollbar flex snap-x snap-mandatory overflow-x-auto md:snap-none">
+    <div class="relative z-10 -mt-12 md:-mt-16 md:overflow-hidden md:rounded-3xl md:border md:border-brand-100 md:bg-white md:shadow-[var(--shadow-soft)]">
+      <div class="no-scrollbar flex snap-x snap-mandatory gap-4 overflow-x-auto px-1 py-1 md:gap-0 md:px-0 md:py-0 md:snap-none">
       {
         advantages.map((a) => (
-          <div class={`shrink-0 basis-[62%] snap-center px-5 py-8 text-center sm:basis-[42%] md:flex-1 md:basis-0 ${a.key !== "1" ? "md:border-l md:border-brand-100" : ""}`}>
+          <div class={`shrink-0 basis-[78%] snap-center rounded-2xl bg-white px-5 py-8 text-center shadow-sm ring-1 ring-brand-100 sm:basis-[55%] md:flex-1 md:basis-0 md:rounded-none md:bg-transparent md:shadow-none md:ring-0 ${a.key !== "1" ? "md:border-l md:border-brand-100" : ""}`}>
             <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-50 text-brand-500">
               {a.icon === "foam" && (
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="9" rx="4"/><path d="M6 8V7a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3v1"/></svg>
@@ -170,11 +170,11 @@ const productsHref = localizePath("/produk", lang);
       <div class="flex flex-col justify-center p-8 md:p-12">
         <svg class="text-brand-200" width="48" height="48" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.5 6C5 6 3 8 3 10.5S5 15 7.5 15c.2 0 .4 0 .6-.05C7.6 16.7 6.2 18 4.5 18.4c-.4.1-.6.5-.5.9.1.4.5.7.9.6C8.6 19.1 11 16 11 12v-1.5C11 8 9 6 7.5 6zm9 0C14 6 12 8 12 10.5S14 15 16.5 15c.2 0 .4 0 .6-.05-.5 1.75-1.9 3.05-3.6 3.45-.4.1-.6.5-.5.9.1.4.5.7.9.6C17.6 19.1 20 16 20 12v-1.5C20 8 18 6 16.5 6z"/></svg>
 
-        <!-- Carousel teks testimoni (bisa di-swipe) -->
-        <div id="testi-track" class="no-scrollbar mt-3 flex snap-x snap-mandatory overflow-x-auto">
+        <!-- Carousel teks testimoni (toggle + bisa di-swipe) -->
+        <div id="testi-track" class="mt-3 select-none">
           {
-            testimonials.map((item) => (
-              <figure class="w-full shrink-0 snap-center pr-1">
+            testimonials.map((item, i) => (
+              <figure class:list={["testi-slide", { hidden: i !== 0 }]}>
                 <div class="flex gap-1 text-brand-400">
                   {[0, 1, 2, 3, 4].map(() => (
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9 6.8 19.2l1-5.8L3.5 9.2l5.9-.9z"/></svg>
@@ -212,31 +212,36 @@ const productsHref = localizePath("/produk", lang);
 
   <script>
     const track = document.getElementById("testi-track");
+    const slides = Array.from(document.querySelectorAll<HTMLElement>(".testi-slide"));
     const dots = Array.from(document.querySelectorAll<HTMLButtonElement>(".testi-dot"));
     const prev = document.getElementById("testi-prev");
     const next = document.getElementById("testi-next");
 
-    if (track && dots.length) {
-      const slideWidth = () => track.clientWidth;
-      const current = () => Math.round(track.scrollLeft / slideWidth());
+    if (track && slides.length) {
+      let idx = 0;
 
-      const setActive = (i: number) => {
+      const show = (i: number) => {
+        idx = (i + slides.length) % slides.length;
+        slides.forEach((s, si) => s.classList.toggle("hidden", si !== idx));
         dots.forEach((d, di) => {
-          d.classList.toggle("bg-brand-500", di === i);
-          d.classList.toggle("bg-brand-200", di !== i);
+          d.classList.toggle("bg-brand-500", di === idx);
+          d.classList.toggle("bg-brand-200", di !== idx);
         });
       };
 
-      const goTo = (i: number) => {
-        const clamped = Math.max(0, Math.min(dots.length - 1, i));
-        track.scrollTo({ left: clamped * slideWidth(), behavior: "smooth" });
-      };
+      dots.forEach((d, i) => d.addEventListener("click", () => show(i)));
+      prev?.addEventListener("click", () => show(idx - 1));
+      next?.addEventListener("click", () => show(idx + 1));
 
-      track.addEventListener("scroll", () => setActive(current()), { passive: true });
-      dots.forEach((d, i) => d.addEventListener("click", () => goTo(i)));
-      prev?.addEventListener("click", () => goTo(current() - 1));
-      next?.addEventListener("click", () => goTo(current() + 1));
-      setActive(0);
+      // Gesture swipe (sentuh) di area testimoni
+      let startX = 0;
+      track.addEventListener("touchstart", (e) => { startX = e.touches[0].clientX; }, { passive: true });
+      track.addEventListener("touchend", (e) => {
+        const dx = e.changedTouches[0].clientX - startX;
+        if (Math.abs(dx) > 40) show(dx < 0 ? idx + 1 : idx - 1);
+      }, { passive: true });
+
+      show(0);
     }
   </script>
 
