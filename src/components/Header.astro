@@ -1,12 +1,14 @@
 ---
 import { getLang, useTranslations, localizePath } from "../i18n/utils";
-import { SITE, waLink } from "../config";
+import { waLink } from "../config";
 import { ui } from "../i18n/ui";
 
 interface Props {
   lang: string;
+  transparent?: boolean;
 }
 const lang = getLang(Astro.props.lang);
+const transparent = Astro.props.transparent ?? false;
 const t = useTranslations(lang);
 const other = lang === "id" ? "en" : "id";
 
@@ -26,21 +28,22 @@ const nav = [
 const orderHref = waLink(ui[lang]["wa.general"]);
 ---
 
-<header class="sticky top-0 z-40 border-b border-brand-100 bg-white/90 backdrop-blur">
+<header
+  class:list={["site-header", { "is-solid": !transparent }]}
+  data-transparent={String(transparent)}
+>
   <div class="container-soft relative flex h-16 items-center justify-between gap-4 md:h-20">
-    <!-- Logo -->
+    <!-- Logo (dua varian: putih utk transparan, biru utk solid) -->
     <a href={localizePath("/", lang)} class="flex shrink-0 items-center" aria-label="Softtin">
-      <img src="/logo-softtin.png" alt="Softtin" class="h-9 w-auto md:h-11" />
+      <img src="/logo-softtin-white.png" alt="Softtin" class="logo-light h-11 w-auto md:h-14" />
+      <img src="/logo-softtin.png" alt="Softtin" class="logo-dark h-11 w-auto md:h-14" />
     </a>
 
-    <!-- Menu desktop (di tengah) -->
-    <nav class="hidden items-center gap-8 lg:absolute lg:left-1/2 lg:flex lg:-translate-x-1/2">
+    <!-- Menu (di tengah) — tampil mulai tablet -->
+    <nav class="absolute left-1/2 hidden -translate-x-1/2 items-center gap-8 md:flex">
       {
         nav.map((item) => (
-          <a
-            href={item.href}
-            class="text-sm font-medium text-brand-900 transition-colors hover:text-brand-500"
-          >
+          <a href={item.href} class="nav-link text-sm font-medium transition-opacity hover:opacity-70">
             {item.label}
           </a>
         ))
@@ -51,7 +54,7 @@ const orderHref = waLink(ui[lang]["wa.general"]);
     <div class="flex items-center gap-2 md:gap-3">
       <a
         href={switchHref}
-        class="rounded-full border border-brand-200 px-3 py-1.5 text-xs font-semibold text-brand-700 transition-colors hover:bg-brand-50"
+        class="header-lang rounded-full border px-3 py-1.5 text-xs font-semibold transition-colors"
         aria-label="Switch language"
       >
         {other.toUpperCase()}
@@ -69,7 +72,7 @@ const orderHref = waLink(ui[lang]["wa.general"]);
       <button
         type="button"
         id="menu-toggle"
-        class="inline-flex items-center justify-center rounded-lg p-2 text-brand-900 lg:hidden"
+        class="header-burger inline-flex items-center justify-center rounded-lg p-2 md:hidden"
         aria-label="Menu"
         aria-expanded="false"
       >
@@ -82,15 +85,12 @@ const orderHref = waLink(ui[lang]["wa.general"]);
     </div>
   </div>
 
-  <!-- Menu mobile (drawer sederhana) -->
-  <nav id="mobile-menu" class="hidden border-t border-brand-100 bg-white lg:hidden">
+  <!-- Menu mobile (drawer) -->
+  <nav id="mobile-menu" class="hidden border-t border-brand-100 bg-white md:hidden">
     <div class="container-soft flex flex-col py-3">
       {
         nav.map((item) => (
-          <a
-            href={item.href}
-            class="rounded-lg px-2 py-3 text-base font-medium text-brand-900 hover:bg-brand-50"
-          >
+          <a href={item.href} class="rounded-lg px-2 py-3 text-base font-medium text-brand-900 hover:bg-brand-50">
             {item.label}
           </a>
         ))
@@ -108,10 +108,22 @@ const orderHref = waLink(ui[lang]["wa.general"]);
 </header>
 
 <script>
+  const header = document.querySelector<HTMLElement>(".site-header");
   const toggle = document.getElementById("menu-toggle");
   const menu = document.getElementById("mobile-menu");
+
+  // Buka/tutup menu mobile
   toggle?.addEventListener("click", () => {
     const open = menu?.classList.toggle("hidden");
     toggle.setAttribute("aria-expanded", String(open === false));
   });
+
+  // Hanya halaman dengan header transparan yang berubah jadi solid saat scroll
+  if (header?.dataset.transparent === "true") {
+    const onScroll = () => {
+      header.classList.toggle("is-solid", window.scrollY > 40);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+  }
 </script>

@@ -9,9 +9,10 @@ interface Props {
   title: string;
   description?: string;
   lang: string;
+  transparentHeader?: boolean;
 }
 
-const { title, description = "", lang: rawLang } = Astro.props;
+const { title, description = "", lang: rawLang, transparentHeader = false } = Astro.props;
 const lang = getLang(rawLang);
 const fullTitle = title ? `${title} — Softtin` : "Softtin";
 ---
@@ -35,8 +36,8 @@ const fullTitle = title ? `${title} — Softtin` : "Softtin";
     />
   </head>
   <body class="bg-white text-brand-950 antialiased">
-    <Header lang={lang} />
-    <main>
+    <Header lang={lang} transparent={transparentHeader} />
+    <main class={transparentHeader ? "" : "pt-16 md:pt-20"}>
       <slot />
     </main>
     <Footer lang={lang} />
