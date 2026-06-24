@@ -1,7 +1,7 @@
 {
   "category": "guling",
   "price": 799000,
-  "images": ["guling-memory-foam-luxury.svg"],
+  "images": ["guling-memory-foam-luxury.jpg", "guling-lifestyle.jpg"],
   "featured": true,
   "order": 2,
   "name": {

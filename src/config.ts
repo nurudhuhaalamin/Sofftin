@@ -16,8 +16,8 @@ export const SITE = {
     en: "Hotel Luxury Sleep Experience",
   },
 
-  // ⬇️ GANTI dengan nomor WhatsApp Anda (sekarang masih placeholder).
-  whatsappNumber: "6281234567890",
+  // ⬇️ Nomor WhatsApp penerima order (+62 851-8680-0193).
+  whatsappNumber: "6285186800193",
 
   // Info kontak
   email: "halo@softtin.com",

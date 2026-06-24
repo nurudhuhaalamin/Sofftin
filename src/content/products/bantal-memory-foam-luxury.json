@@ -1,7 +1,7 @@
 {
   "category": "bantal",
   "price": 699000,
-  "images": ["bantal-memory-foam-luxury.svg"],
+  "images": ["bantal-memory-foam-luxury.jpg"],
   "featured": true,
   "order": 1,
   "name": {
