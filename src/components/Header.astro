@@ -27,14 +27,14 @@ const orderHref = waLink(ui[lang]["wa.general"]);
 ---
 
 <header class="sticky top-0 z-40 border-b border-brand-100 bg-white/90 backdrop-blur">
-  <div class="container-soft flex h-16 items-center justify-between gap-4 md:h-20">
+  <div class="container-soft relative flex h-16 items-center justify-between gap-4 md:h-20">
     <!-- Logo -->
     <a href={localizePath("/", lang)} class="flex shrink-0 items-center" aria-label="Softtin">
       <img src="/logo-softtin.png" alt="Softtin" class="h-9 w-auto md:h-11" />
     </a>
 
-    <!-- Menu desktop -->
-    <nav class="hidden items-center gap-7 lg:flex">
+    <!-- Menu desktop (di tengah) -->
+    <nav class="hidden items-center gap-8 lg:absolute lg:left-1/2 lg:flex lg:-translate-x-1/2">
       {
         nav.map((item) => (
           <a
@@ -62,7 +62,7 @@ const orderHref = waLink(ui[lang]["wa.general"]);
         rel="noopener"
         class="hidden rounded-full bg-brand-500 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-brand-600 sm:inline-block"
       >
-        {t("nav.order")}
+        {t("cta.buy")}
       </a>
 
       <!-- Tombol menu mobile -->
@@ -101,7 +101,7 @@ const orderHref = waLink(ui[lang]["wa.general"]);
         rel="noopener"
         class="mt-2 rounded-full bg-brand-500 px-5 py-3 text-center text-sm font-semibold text-white"
       >
-        {t("nav.order")}
+        {t("cta.buy")}
       </a>
     </div>
   </nav>

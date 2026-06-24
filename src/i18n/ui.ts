@@ -46,8 +46,11 @@ export const ui = {
     "adv.3.desc": "Dipercaya untuk menghadirkan pengalaman tidur kelas hotel.",
     "adv.4.title": "Garansi & Layanan",
     "adv.4.desc": "Garansi produk dan layanan pelanggan yang ramah via WhatsApp.",
+    "adv.5.title": "Awet & Tahan Lama",
+    "adv.5.desc": "Busa berkualitas yang mempertahankan bentuk dalam pemakaian jangka panjang.",
 
     // Produk unggulan
+    "products.featuredLabel": "PRODUK UNGGULAN",
     "products.featuredTitle": "Bantal & Guling Luxury",
     "products.featuredSubtitle":
       "Dibuat dari memory foam berkualitas tinggi untuk kenyamanan tidur maksimal setiap malam.",
@@ -129,8 +132,11 @@ export const ui = {
     "adv.3.desc": "Trusted to deliver a true hotel-class sleep experience.",
     "adv.4.title": "Warranty & Service",
     "adv.4.desc": "Product warranty and friendly customer service via WhatsApp.",
+    "adv.5.title": "Durable & Long-lasting",
+    "adv.5.desc": "Quality foam that keeps its shape through long-term use.",
 
     // Featured products
+    "products.featuredLabel": "FEATURED PRODUCTS",
     "products.featuredTitle": "Luxury Pillows & Bolsters",
     "products.featuredSubtitle":
       "Made from high-quality memory foam for maximum sleeping comfort every night.",
