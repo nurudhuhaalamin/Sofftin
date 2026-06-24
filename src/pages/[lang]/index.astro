@@ -45,18 +45,28 @@ const orderHref = waLink(ui[lang]["wa.general"]);
 const productsHref = localizePath("/produk", lang);
 ---
 
-<Layout lang={lang} title={t("hero.title")} description={t("hero.subtitle")}>
-  <!-- HERO -->
-  <section class="relative overflow-hidden bg-gradient-to-b from-brand-50 to-white">
-    <div class="container-soft grid items-center gap-10 py-14 md:py-20 lg:grid-cols-2 lg:gap-8">
-      <div>
-        <span class="inline-block rounded-full bg-brand-100 px-4 py-1.5 text-xs font-bold tracking-wider text-brand-700">
+<Layout lang={lang} title={t("hero.title")} description={t("hero.subtitle")} transparentHeader={true}>
+  <!-- HERO — foto full-bleed jadi background, teks putih di atasnya -->
+  <section class="relative flex min-h-[600px] items-center md:min-h-screen">
+    <!-- Foto background -->
+    <img
+      src="/products/guling-lifestyle.jpg"
+      alt={t("hero.title")}
+      class="absolute inset-0 h-full w-full object-cover"
+    />
+    <!-- Lapisan gelap agar teks terbaca -->
+    <div class="absolute inset-0 bg-gradient-to-r from-brand-950/75 via-brand-950/45 to-brand-950/20"></div>
+
+    <!-- Konten -->
+    <div class="container-soft relative z-10 pt-24 pb-16 md:pt-28">
+      <div class="max-w-2xl text-white">
+        <span class="inline-block rounded-full bg-white/15 px-4 py-1.5 text-xs font-bold tracking-wider backdrop-blur-sm">
           {t("hero.badge")}
         </span>
-        <h1 class="mt-5 text-3xl font-extrabold leading-tight text-brand-900 sm:text-4xl md:text-5xl lg:text-6xl">
+        <h1 class="mt-5 text-4xl font-extrabold leading-tight sm:text-5xl lg:text-6xl">
           {t("hero.title")}
         </h1>
-        <p class="mt-5 max-w-xl text-base text-brand-800/80 md:text-lg">
+        <p class="mt-5 max-w-xl text-base text-white/85 md:text-lg">
           {t("hero.subtitle")}
         </p>
         <div class="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -64,30 +74,28 @@ const productsHref = localizePath("/produk", lang);
             href={orderHref}
             target="_blank"
             rel="noopener"
-            class="rounded-full bg-brand-500 px-7 py-3.5 text-center text-sm font-semibold text-white shadow-md transition-colors hover:bg-brand-600"
+            class="rounded-full bg-brand-500 px-7 py-3.5 text-center text-sm font-semibold text-white shadow-lg transition-colors hover:bg-brand-600"
           >
             {t("cta.buy")}
           </a>
           <a
             href={productsHref}
-            class="rounded-full border border-brand-300 px-7 py-3.5 text-center text-sm font-semibold text-brand-700 transition-colors hover:bg-brand-50"
+            class="rounded-full border border-white/70 px-7 py-3.5 text-center text-sm font-semibold text-white transition-colors hover:bg-white/10"
           >
             {t("cta.viewProducts")}
           </a>
         </div>
       </div>
-      <div class="relative">
-        <img src="/products/set-bantal-guling-luxury.jpg" alt={t("hero.title")} class="aspect-[4/3] w-full rounded-3xl object-cover shadow-[var(--shadow-soft)]" />
-      </div>
     </div>
   </section>
 
-  <!-- KEUNGGULAN — strip 5 item mengambang menumpuk hero -->
+  <!-- KEUNGGULAN — strip 5 item mengambang menumpuk hero, scroll horizontal di HP -->
   <section id="keunggulan" class="container-soft scroll-mt-24">
-    <div class="relative z-10 -mt-8 grid grid-cols-2 gap-y-8 rounded-3xl border border-brand-100 bg-white px-4 py-8 shadow-[var(--shadow-soft)] sm:grid-cols-3 md:divide-x md:divide-brand-100 lg:-mt-14 lg:grid-cols-5 lg:gap-y-0">
+    <div class="relative z-10 -mt-10 overflow-hidden rounded-3xl border border-brand-100 bg-white shadow-[var(--shadow-soft)] md:-mt-16">
+      <div class="no-scrollbar flex snap-x snap-mandatory overflow-x-auto md:snap-none">
       {
         advantages.map((a) => (
-          <div class="px-4 text-center">
+          <div class={`shrink-0 basis-[62%] snap-center px-5 py-8 text-center sm:basis-[42%] md:flex-1 md:basis-0 ${a.key !== "1" ? "md:border-l md:border-brand-100" : ""}`}>
             <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-50 text-brand-500">
               {a.icon === "foam" && (
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="9" rx="4"/><path d="M6 8V7a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3v1"/></svg>
@@ -110,6 +118,7 @@ const productsHref = localizePath("/produk", lang);
           </div>
         ))
       }
+      </div>
     </div>
   </section>
 
@@ -120,7 +129,7 @@ const productsHref = localizePath("/produk", lang);
       <h2 class="mt-3 text-3xl font-extrabold text-brand-900 md:text-4xl">{t("products.featuredTitle")}</h2>
       <p class="mt-3 text-brand-700/80">{t("products.featuredSubtitle")}</p>
     </div>
-    <div class="mx-auto mt-12 flex max-w-5xl flex-col gap-8">
+    <div class="mx-auto mt-12 grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-2">
       {featured.map((product) => <FeaturedProductCard product={product} lang={lang} />)}
     </div>
     <div class="mt-10 text-center">
@@ -151,30 +160,85 @@ const productsHref = localizePath("/produk", lang);
       <p class="mt-3 text-brand-700/80">{t("testi.subtitle")}</p>
     </div>
 
-    <figure class="mt-12 grid items-stretch gap-8 overflow-hidden rounded-3xl border border-brand-100 bg-white shadow-[var(--shadow-soft)] md:grid-cols-2 md:gap-0">
+    <div class="mt-12 grid items-stretch overflow-hidden rounded-3xl border border-brand-100 bg-white shadow-[var(--shadow-soft)] md:grid-cols-2">
       <img
-        src="/products/guling-lifestyle.jpg"
+        src="/products/set-bantal-guling-luxury.jpg"
         alt={t("testi.title")}
         loading="lazy"
         class="h-64 w-full object-cover md:h-full"
       />
       <div class="flex flex-col justify-center p-8 md:p-12">
         <svg class="text-brand-200" width="48" height="48" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.5 6C5 6 3 8 3 10.5S5 15 7.5 15c.2 0 .4 0 .6-.05C7.6 16.7 6.2 18 4.5 18.4c-.4.1-.6.5-.5.9.1.4.5.7.9.6C8.6 19.1 11 16 11 12v-1.5C11 8 9 6 7.5 6zm9 0C14 6 12 8 12 10.5S14 15 16.5 15c.2 0 .4 0 .6-.05-.5 1.75-1.9 3.05-3.6 3.45-.4.1-.6.5-.5.9.1.4.5.7.9.6C17.6 19.1 20 16 20 12v-1.5C20 8 18 6 16.5 6z"/></svg>
-        <div class="mt-3 flex gap-1 text-brand-400">
-          {[0, 1, 2, 3, 4].map(() => (
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9 6.8 19.2l1-5.8L3.5 9.2l5.9-.9z"/></svg>
-          ))}
+
+        <!-- Carousel teks testimoni (bisa di-swipe) -->
+        <div id="testi-track" class="no-scrollbar mt-3 flex snap-x snap-mandatory overflow-x-auto">
+          {
+            testimonials.map((item) => (
+              <figure class="w-full shrink-0 snap-center pr-1">
+                <div class="flex gap-1 text-brand-400">
+                  {[0, 1, 2, 3, 4].map(() => (
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9 6.8 19.2l1-5.8L3.5 9.2l5.9-.9z"/></svg>
+                  ))}
+                </div>
+                <blockquote class="mt-4 text-lg leading-relaxed text-brand-800 md:text-xl">
+                  “{item[lang].quote}”
+                </blockquote>
+                <figcaption class="mt-6 text-sm font-bold text-brand-900">
+                  {item[lang].name}
+                  <span class="font-normal text-brand-500"> · {item[lang].role}</span>
+                </figcaption>
+              </figure>
+            ))
+          }
         </div>
-        <blockquote class="mt-4 text-lg leading-relaxed text-brand-800 md:text-xl">
-          “{testimonials[0][lang].quote}”
-        </blockquote>
-        <figcaption class="mt-6 text-sm font-bold text-brand-900">
-          {testimonials[0][lang].name}
-          <span class="font-normal text-brand-500"> · {testimonials[0][lang].role}</span>
-        </figcaption>
+
+        <!-- Navigasi: panah + titik -->
+        <div class="mt-8 flex items-center gap-4">
+          <button type="button" id="testi-prev" aria-label="Sebelumnya" class="flex h-9 w-9 items-center justify-center rounded-full border border-brand-200 text-brand-600 transition-colors hover:bg-brand-50">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg>
+          </button>
+          <div id="testi-dots" class="flex gap-2">
+            {testimonials.map((_, i) => (
+              <button type="button" class="testi-dot h-2.5 w-2.5 rounded-full bg-brand-200 transition-colors" data-i={i} aria-label={`Testimoni ${i + 1}`}></button>
+            ))}
+          </div>
+          <button type="button" id="testi-next" aria-label="Berikutnya" class="flex h-9 w-9 items-center justify-center rounded-full border border-brand-200 text-brand-600 transition-colors hover:bg-brand-50">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+          </button>
+        </div>
       </div>
-    </figure>
+    </div>
   </section>
+
+  <script>
+    const track = document.getElementById("testi-track");
+    const dots = Array.from(document.querySelectorAll<HTMLButtonElement>(".testi-dot"));
+    const prev = document.getElementById("testi-prev");
+    const next = document.getElementById("testi-next");
+
+    if (track && dots.length) {
+      const slideWidth = () => track.clientWidth;
+      const current = () => Math.round(track.scrollLeft / slideWidth());
+
+      const setActive = (i: number) => {
+        dots.forEach((d, di) => {
+          d.classList.toggle("bg-brand-500", di === i);
+          d.classList.toggle("bg-brand-200", di !== i);
+        });
+      };
+
+      const goTo = (i: number) => {
+        const clamped = Math.max(0, Math.min(dots.length - 1, i));
+        track.scrollTo({ left: clamped * slideWidth(), behavior: "smooth" });
+      };
+
+      track.addEventListener("scroll", () => setActive(current()), { passive: true });
+      dots.forEach((d, i) => d.addEventListener("click", () => goTo(i)));
+      prev?.addEventListener("click", () => goTo(current() - 1));
+      next?.addEventListener("click", () => goTo(current() + 1));
+      setActive(0);
+    }
+  </script>
 
   <!-- CTA BAWAH -->
   <section class="container-soft pb-4">

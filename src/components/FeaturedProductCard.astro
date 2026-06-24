@@ -23,20 +23,23 @@ const detailHref = localizePath(`/produk/${product.id}`, lang);
 const orderHref = waLink(`${ui[lang]["wa.orderPrefix"]} ${name} (${price})`);
 ---
 
-<article class="grid overflow-hidden rounded-3xl border border-brand-100 bg-white shadow-[var(--shadow-soft)] md:grid-cols-2">
-  <!-- Gambar di panel biru muda -->
-  <a href={detailHref} class="flex items-center justify-center bg-brand-50 p-6">
+<!--
+  Layout responsif:
+  - Mobile & tablet (default): vertikal — gambar di atas, detail di bawah.
+  - Desktop (lg): horizontal — gambar di kiri (panel biru), detail di kanan (sesuai mockup).
+-->
+<article class="grid overflow-hidden rounded-3xl border border-brand-100 bg-white shadow-[var(--shadow-soft)] lg:grid-cols-2">
+  <a href={detailHref} class="flex items-center justify-center bg-brand-50 p-5">
     <img
       src={image}
       alt={name}
       loading="lazy"
-      class="aspect-[4/3] w-full rounded-2xl object-cover"
+      class="aspect-[4/3] w-full rounded-2xl object-cover lg:aspect-auto lg:h-full"
     />
   </a>
 
-  <!-- Detail -->
-  <div class="flex flex-col justify-center p-7 md:p-9">
-    <h3 class="text-xl font-extrabold text-brand-900 md:text-2xl">
+  <div class="flex flex-col justify-center p-6 md:p-8">
+    <h3 class="text-xl font-extrabold text-brand-900">
       <a href={detailHref} class="transition-colors hover:text-brand-500">{name}</a>
     </h3>
     {tagline && <p class="mt-1.5 text-sm text-brand-700/80">{tagline}</p>}
