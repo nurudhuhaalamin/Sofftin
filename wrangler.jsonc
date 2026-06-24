@@ -1,0 +1,12 @@
+{
+  // Konfigurasi deploy Cloudflare Workers (situs statis Softtin).
+  // Worker ini HANYA berisi aset statis hasil build Astro (folder dist/),
+  // tanpa script Worker — jadi tidak ada properti "main".
+  // Di lingkungan CI (Workers Builds), folder aset HARUS dideklarasikan di sini;
+  // argumen path hanya berfungsi di mode interaktif.
+  "name": "sofftin",
+  "compatibility_date": "2026-06-15",
+  "assets": {
+    "directory": "./dist"
+  }
+}
