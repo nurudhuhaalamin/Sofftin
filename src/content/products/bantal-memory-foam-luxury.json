@@ -1,0 +1,35 @@
+{
+  "category": "bantal",
+  "price": 699000,
+  "images": ["bantal-memory-foam-luxury.jpg"],
+  "featured": true,
+  "order": 1,
+  "name": {
+    "id": "Bantal Memory Foam Luxury",
+    "en": "Luxury Memory Foam Pillow"
+  },
+  "tagline": {
+    "id": "Topangan sempurna untuk kepala & leher",
+    "en": "Perfect support for head & neck"
+  },
+  "description": {
+    "id": "Bantal memory foam premium yang menyesuaikan bentuk kepala dan leher Anda. Memberikan topangan optimal sepanjang malam untuk tidur yang lebih nyenyak dan bebas pegal, dengan kualitas khas hotel mewah.",
+    "en": "A premium memory foam pillow that adapts to the shape of your head and neck. It provides optimal support all night long for deeper, ache-free sleep with that signature luxury-hotel quality."
+  },
+  "specs": {
+    "id": [
+      "Bahan: Memory foam premium",
+      "Ukuran: 50 x 70 cm",
+      "Sarung: Lembut, dapat dilepas & dicuci",
+      "Higienis & anti-tungau",
+      "Garansi kualitas produk"
+    ],
+    "en": [
+      "Material: Premium memory foam",
+      "Size: 50 x 70 cm",
+      "Cover: Soft, removable & washable",
+      "Hygienic & dust-mite resistant",
+      "Product quality warranty"
+    ]
+  }
+}
