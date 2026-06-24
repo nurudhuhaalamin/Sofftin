@@ -20,7 +20,7 @@ export const SITE = {
   whatsappNumber: "6285186800193",
 
   // Info kontak
-  email: "halo@sofftin.id",
+  email: "halo@softtin.id",
   city: {
     id: "Jl. Intan 1, Cidokom, Gunung Sindur, Kabupaten Bogor",
     en: "Jl. Intan 1, Cidokom, Gunung Sindur, Kabupaten Bogor",
@@ -28,8 +28,8 @@ export const SITE = {
 
   // Sosial media (kosongkan "" jika belum ada — link akan disembunyikan)
   social: {
-    instagram: "https://instagram.com/sofftin.id",
-    tiktok: "https://tiktok.com/@sofftin.id",
+    instagram: "https://instagram.com/softtin.id",
+    tiktok: "https://tiktok.com/@softtin.id",
     facebook: "",
     shopee: "",
     tokopedia: "",
