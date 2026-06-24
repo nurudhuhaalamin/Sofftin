@@ -3,7 +3,7 @@ import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import FeaturedProductCard from "../../components/FeaturedProductCard.astro";
 import { getLang, useTranslations, localizePath } from "../../i18n/utils";
-import { SITE, waLink } from "../../config";
+import { waLink } from "../../config";
 import { ui } from "../../i18n/ui";
 
 export function getStaticPaths() {
@@ -95,7 +95,7 @@ const productsHref = localizePath("/produk", lang);
       <div class="no-scrollbar flex snap-x snap-mandatory gap-4 overflow-x-auto px-1 py-1 md:gap-0 md:px-0 md:py-0 md:snap-none">
       {
         advantages.map((a) => (
-          <div class={`shrink-0 basis-[78%] snap-center rounded-2xl bg-white px-5 py-8 text-center shadow-sm ring-1 ring-brand-100 sm:basis-[55%] md:flex-1 md:basis-0 md:rounded-none md:bg-transparent md:shadow-none md:ring-0 ${a.key !== "1" ? "md:border-l md:border-brand-100" : ""}`}>
+          <div class={`shrink-0 basis-full snap-center rounded-2xl bg-white px-5 py-8 text-center shadow-sm ring-1 ring-brand-100 sm:basis-[46%] md:flex-1 md:basis-0 md:rounded-none md:bg-transparent md:shadow-none md:ring-0 ${a.key !== "1" ? "md:border-l md:border-brand-100" : ""}`}>
             <div class="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl bg-brand-50 text-brand-500">
               {a.icon === "foam" && (
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="9" rx="4"/><path d="M6 8V7a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3v1"/></svg>
@@ -136,20 +136,6 @@ const productsHref = localizePath("/produk", lang);
       <a href={productsHref} class="inline-block rounded-full border border-brand-300 px-7 py-3 text-sm font-semibold text-brand-700 transition-colors hover:bg-brand-50">
         {t("cta.viewProducts")}
       </a>
-    </div>
-  </section>
-
-  <!-- PARTNER -->
-  <section class="border-y border-brand-100 bg-brand-50/50">
-    <div class="container-soft py-12">
-      <p class="text-center text-xs font-bold uppercase tracking-[0.2em] text-brand-500">{t("partners.title")}</p>
-      <div class="mt-7 flex flex-wrap items-center justify-center gap-x-12 gap-y-5">
-        {
-          SITE.partners.map((name) => (
-            <span class="text-lg font-bold tracking-wide text-brand-900/30 md:text-2xl">{name}</span>
-          ))
-        }
-      </div>
     </div>
   </section>
 

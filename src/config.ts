@@ -20,25 +20,20 @@ export const SITE = {
   whatsappNumber: "6285186800193",
 
   // Info kontak
-  email: "halo@softtin.com",
+  email: "halo@sofftin.id",
   city: {
-    id: "Jakarta, Indonesia",
-    en: "Jakarta, Indonesia",
+    id: "Jl. Intan 1, Cidokom, Gunung Sindur, Kabupaten Bogor",
+    en: "Jl. Intan 1, Cidokom, Gunung Sindur, Kabupaten Bogor",
   },
 
   // Sosial media (kosongkan "" jika belum ada — link akan disembunyikan)
   social: {
-    instagram: "https://instagram.com/softtin",
-    tiktok: "",
+    instagram: "https://instagram.com/sofftin.id",
+    tiktok: "https://tiktok.com/@sofftin.id",
     facebook: "",
     shopee: "",
     tokopedia: "",
   },
-
-  // Nama hotel/partner yang ditampilkan di bagian "Dipercaya oleh...".
-  // ⚠️ Ini contoh placeholder. Ganti dengan partner yang BENAR-BENAR bekerja sama
-  //    dengan Anda agar tidak melanggar merek dagang pihak lain.
-  partners: ["The Grandeur", "Azure Suites", "Meridian", "Lumière", "Serena Resort"],
 } as const;
 
 /**
