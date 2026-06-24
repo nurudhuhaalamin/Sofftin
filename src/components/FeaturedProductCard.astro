@@ -17,6 +17,7 @@ const d = product.data;
 const name = d.name[lang];
 const tagline = d.tagline?.[lang] ?? "";
 const price = formatPrice(d.price);
+const original = d.originalPrice ? formatPrice(d.originalPrice) : null;
 const image = d.images[0] ? `/products/${d.images[0]}` : "/products/placeholder.svg";
 const specs = (d.specs?.[lang] ?? []).slice(0, 4);
 const detailHref = localizePath(`/produk/${product.id}`, lang);
@@ -57,7 +58,10 @@ const orderHref = waLink(`${ui[lang]["wa.orderPrefix"]} ${name} (${price})`);
       )
     }
 
-    <p class="mt-6 text-2xl font-extrabold text-brand-600">{price}</p>
+    <div class="mt-6 flex flex-wrap items-baseline gap-x-2.5">
+      {original && <span class="text-base font-medium text-brand-400 line-through">{original}</span>}
+      <span class="text-2xl font-extrabold text-brand-600">{price}</span>
+    </div>
 
     <div class="mt-5 flex flex-col gap-2.5 sm:flex-row">
       <a

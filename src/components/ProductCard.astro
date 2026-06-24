@@ -17,6 +17,7 @@ const d = product.data;
 const name = d.name[lang];
 const tagline = d.tagline?.[lang] ?? "";
 const price = formatPrice(d.price);
+const original = d.originalPrice ? formatPrice(d.originalPrice) : null;
 const image = d.images[0] ? `/products/${d.images[0]}` : "/products/placeholder.svg";
 const detailHref = localizePath(`/produk/${product.id}`, lang);
 const orderHref = waLink(`${ui[lang]["wa.orderPrefix"]} ${name} (${price})`);
@@ -36,7 +37,10 @@ const orderHref = waLink(`${ui[lang]["wa.orderPrefix"]} ${name} (${price})`);
       <a href={detailHref} class="transition-colors hover:text-brand-500">{name}</a>
     </h3>
     {tagline && <p class="mt-1 text-sm text-brand-700/80">{tagline}</p>}
-    <p class="mt-4 text-xl font-extrabold text-brand-600">{price}</p>
+    <div class="mt-4 flex flex-wrap items-baseline gap-x-2">
+      {original && <span class="text-sm font-medium text-brand-400 line-through">{original}</span>}
+      <span class="text-xl font-extrabold text-brand-600">{price}</span>
+    </div>
 
     <div class="mt-5 flex flex-col gap-2 sm:flex-row">
       <a
