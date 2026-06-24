@@ -1,0 +1,106 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../../layouts/Layout.astro";
+import ProductCard from "../../../components/ProductCard.astro";
+import { getLang, useTranslations } from "../../../i18n/utils";
+
+export function getStaticPaths() {
+  return [{ params: { lang: "id" } }, { params: { lang: "en" } }];
+}
+
+const lang = getLang(Astro.params.lang);
+const t = useTranslations(lang);
+
+const products = (await getCollection("products")).sort(
+  (a, b) => a.data.order - b.data.order
+);
+
+// Daftar kategori unik (untuk tombol filter).
+const categories = Array.from(new Set(products.map((p) => p.data.category)));
+
+// Label kategori dwibahasa (jika tidak ada, pakai nama kategori apa adanya).
+const categoryLabels: Record<string, { id: string; en: string }> = {
+  bantal: { id: "Bantal", en: "Pillows" },
+  guling: { id: "Guling", en: "Bolsters" },
+  set: { id: "Set", en: "Sets" },
+};
+const labelFor = (c: string) => categoryLabels[c]?.[lang] ?? c;
+---
+
+<Layout lang={lang} title={t("products.allTitle")} description={t("products.allSubtitle")}>
+  <section class="bg-gradient-to-b from-brand-50 to-white">
+    <div class="container-soft py-14 text-center md:py-16">
+      <h1 class="text-3xl font-extrabold text-brand-900 md:text-4xl">{t("products.allTitle")}</h1>
+      <p class="mx-auto mt-3 max-w-xl text-brand-700/80">{t("products.allSubtitle")}</p>
+    </div>
+  </section>
+
+  <section class="container-soft py-12">
+    <!-- Filter kategori -->
+    <div class="mb-10 flex flex-wrap justify-center gap-2.5" id="filters">
+      <button
+        type="button"
+        data-filter="all"
+        class="filter-btn rounded-full bg-brand-500 px-5 py-2 text-sm font-semibold text-white"
+      >
+        {t("common.allCategories")}
+      </button>
+      {
+        categories.map((c) => (
+          <button
+            type="button"
+            data-filter={c}
+            class="filter-btn rounded-full border border-brand-200 bg-white px-5 py-2 text-sm font-semibold text-brand-700 hover:bg-brand-50"
+          >
+            {labelFor(c)}
+          </button>
+        ))
+      }
+    </div>
+
+    <!-- Grid produk -->
+    <div id="product-grid" class="grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        products.map((product) => (
+          <div class="product-item" data-category={product.data.category}>
+            <ProductCard product={product} lang={lang} />
+          </div>
+        ))
+      }
+    </div>
+
+    <p id="empty-msg" class="hidden py-12 text-center text-brand-700/70">{t("products.empty")}</p>
+  </section>
+</Layout>
+
+<script>
+  const buttons = document.querySelectorAll<HTMLButtonElement>(".filter-btn");
+  const items = document.querySelectorAll<HTMLElement>(".product-item");
+  const emptyMsg = document.getElementById("empty-msg");
+
+  const activeClasses = ["bg-brand-500", "text-white"];
+  const idleClasses = ["border", "border-brand-200", "bg-white", "text-brand-700"];
+
+  function setActive(target: HTMLButtonElement) {
+    buttons.forEach((b) => {
+      b.classList.remove(...activeClasses);
+      b.classList.add(...idleClasses);
+    });
+    target.classList.remove(...idleClasses);
+    target.classList.add(...activeClasses);
+  }
+
+  buttons.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const filter = btn.dataset.filter;
+      setActive(btn);
+      let visible = 0;
+      items.forEach((item) => {
+        const show = filter === "all" || item.dataset.category === filter;
+        item.classList.toggle("hidden", !show);
+        if (show) visible++;
+      });
+      emptyMsg?.classList.toggle("hidden", visible > 0);
+    });
+  });
+</script>

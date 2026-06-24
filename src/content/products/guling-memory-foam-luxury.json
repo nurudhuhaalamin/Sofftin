@@ -1,0 +1,35 @@
+{
+  "category": "guling",
+  "price": 799000,
+  "images": ["guling-memory-foam-luxury.svg"],
+  "featured": true,
+  "order": 2,
+  "name": {
+    "id": "Guling Memory Foam Luxury",
+    "en": "Luxury Memory Foam Bolster"
+  },
+  "tagline": {
+    "id": "Pendamping tidur yang empuk & menopang",
+    "en": "A soft, supportive sleep companion"
+  },
+  "description": {
+    "id": "Guling memory foam premium dengan kelembutan dan topangan yang pas. Membantu posisi tidur lebih rileks dan nyaman, dibuat dari material berkualitas tinggi yang higienis dan tahan lama.",
+    "en": "A premium memory foam bolster with just the right softness and support. It helps you settle into a more relaxed, comfortable sleeping position, crafted from high-quality, hygienic, and durable materials."
+  },
+  "specs": {
+    "id": [
+      "Bahan: Memory foam premium",
+      "Ukuran: 80 x 20 cm",
+      "Sarung: Lembut, dapat dilepas & dicuci",
+      "Higienis & anti-tungau",
+      "Garansi kualitas produk"
+    ],
+    "en": [
+      "Material: Premium memory foam",
+      "Size: 80 x 20 cm",
+      "Cover: Soft, removable & washable",
+      "Hygienic & dust-mite resistant",
+      "Product quality warranty"
+    ]
+  }
+}

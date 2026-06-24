@@ -1,0 +1,71 @@
+---
+import { getLang, useTranslations, localizePath } from "../i18n/utils";
+import { SITE, waLink } from "../config";
+import { ui } from "../i18n/ui";
+
+const lang = getLang(Astro.props.lang);
+const t = useTranslations(lang);
+const year = new Date().getFullYear();
+
+const menu = [
+  { href: localizePath("/", lang), label: t("nav.home") },
+  { href: localizePath("/produk", lang), label: t("nav.products") },
+  { href: localizePath("/tentang", lang), label: t("nav.about") },
+  { href: localizePath("/kontak", lang), label: t("nav.contact") },
+];
+
+const socials = Object.entries(SITE.social).filter(([, url]) => url);
+const waHref = waLink(ui[lang]["wa.general"]);
+---
+
+<footer class="mt-24 bg-brand-900 text-brand-100">
+  <div class="container-soft grid gap-10 py-14 md:grid-cols-2 lg:grid-cols-4">
+    <!-- Brand -->
+    <div class="lg:col-span-1">
+      <img src="/logo-softtin-white.png" alt="Softtin" class="mb-4 h-10 w-auto" />
+      <p class="max-w-xs text-sm text-brand-200">{t("footer.tagline")}</p>
+    </div>
+
+    <!-- Menu -->
+    <div>
+      <h3 class="mb-4 text-sm font-bold uppercase tracking-wide text-white">{t("footer.menu")}</h3>
+      <ul class="space-y-2.5 text-sm">
+        {menu.map((item) => (
+          <li>
+            <a href={item.href} class="text-brand-200 transition-colors hover:text-white">{item.label}</a>
+          </li>
+        ))}
+      </ul>
+    </div>
+
+    <!-- Kontak -->
+    <div>
+      <h3 class="mb-4 text-sm font-bold uppercase tracking-wide text-white">{t("footer.contact")}</h3>
+      <ul class="space-y-2.5 text-sm text-brand-200">
+        <li><a href={waHref} target="_blank" rel="noopener" class="hover:text-white">WhatsApp</a></li>
+        <li><a href={`mailto:${SITE.email}`} class="hover:text-white">{SITE.email}</a></li>
+        <li>{SITE.city[lang]}</li>
+      </ul>
+    </div>
+
+    <!-- Sosial -->
+    {socials.length > 0 && (
+      <div>
+        <h3 class="mb-4 text-sm font-bold uppercase tracking-wide text-white">{t("footer.follow")}</h3>
+        <ul class="space-y-2.5 text-sm">
+          {socials.map(([name, url]) => (
+            <li>
+              <a href={url} target="_blank" rel="noopener" class="capitalize text-brand-200 transition-colors hover:text-white">{name}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    )}
+  </div>
+
+  <div class="border-t border-white/10">
+    <div class="container-soft py-5 text-center text-xs text-brand-300">
+      © {year} {SITE.name}. {t("footer.rights")}
+    </div>
+  </div>
+</footer>

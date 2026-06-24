@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" role="img" aria-label="Guling Memory Foam Luxury">
+  <defs>
+    <linearGradient id="bg2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#eff8ff"/>
+      <stop offset="1" stop-color="#dbeefe"/>
+    </linearGradient>
+    <linearGradient id="bolster" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#e9f3fd"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="600" fill="url(#bg2)"/>
+  <ellipse cx="400" cy="500" rx="290" ry="36" fill="#bfe2fe" opacity="0.55"/>
+  <g>
+    <rect x="150" y="250" width="500" height="150" rx="75" fill="url(#bolster)" stroke="#bfe2fe" stroke-width="3"/>
+    <ellipse cx="160" cy="325" rx="26" ry="75" fill="#dbeefe" stroke="#93d0fd" stroke-width="3"/>
+    <ellipse cx="640" cy="325" rx="26" ry="75" fill="#dbeefe" stroke="#93d0fd" stroke-width="3"/>
+    <line x1="320" y1="262" x2="320" y2="388" stroke="#cfe6fb" stroke-width="3"/>
+    <line x1="480" y1="262" x2="480" y2="388" stroke="#cfe6fb" stroke-width="3"/>
+  </g>
+  <text x="400" y="560" text-anchor="middle" font-family="'Plus Jakarta Sans',sans-serif" font-size="26" font-weight="700" fill="#2369ad">Softtin — Guling Memory Foam</text>
+</svg>

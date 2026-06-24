@@ -1,0 +1,35 @@
+{
+  "category": "set",
+  "price": 1399000,
+  "images": ["set-bantal-guling-luxury.svg"],
+  "featured": false,
+  "order": 3,
+  "name": {
+    "id": "Set Bantal & Guling Luxury",
+    "en": "Luxury Pillow & Bolster Set"
+  },
+  "tagline": {
+    "id": "Paket hemat untuk tidur sempurna",
+    "en": "A value bundle for perfect sleep"
+  },
+  "description": {
+    "id": "Paket lengkap berisi Bantal dan Guling Memory Foam Luxury. Solusi praktis untuk menghadirkan pengalaman tidur standar hotel mewah di kamar Anda dengan harga lebih hemat.",
+    "en": "A complete bundle of the Luxury Memory Foam Pillow and Bolster. A practical way to bring a luxury-hotel sleep experience to your bedroom at a better price."
+  },
+  "specs": {
+    "id": [
+      "Isi: 1 Bantal + 1 Guling Memory Foam Luxury",
+      "Bahan: Memory foam premium",
+      "Sarung: Lembut, dapat dilepas & dicuci",
+      "Higienis & anti-tungau",
+      "Garansi kualitas produk"
+    ],
+    "en": [
+      "Includes: 1 Pillow + 1 Bolster (Luxury Memory Foam)",
+      "Material: Premium memory foam",
+      "Cover: Soft, removable & washable",
+      "Hygienic & dust-mite resistant",
+      "Product quality warranty"
+    ]
+  }
+}

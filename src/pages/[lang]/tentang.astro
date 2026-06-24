@@ -1,0 +1,49 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getLang, useTranslations, localizePath } from "../../i18n/utils";
+import { waLink } from "../../config";
+import { ui } from "../../i18n/ui";
+
+export function getStaticPaths() {
+  return [{ params: { lang: "id" } }, { params: { lang: "en" } }];
+}
+
+const lang = getLang(Astro.params.lang);
+const t = useTranslations(lang);
+const orderHref = waLink(ui[lang]["wa.general"]);
+
+const advantages = ["1", "2", "3", "4"] as const;
+---
+
+<Layout lang={lang} title={t("about.title")} description={t("about.body")}>
+  <section class="bg-gradient-to-b from-brand-50 to-white">
+    <div class="container-soft grid items-center gap-10 py-14 md:py-20 lg:grid-cols-2">
+      <div>
+        <h1 class="text-3xl font-extrabold text-brand-900 md:text-4xl">{t("about.title")}</h1>
+        <p class="mt-5 leading-relaxed text-brand-800/90">{t("about.body")}</p>
+        <a
+          href={orderHref}
+          target="_blank"
+          rel="noopener"
+          class="mt-8 inline-block rounded-full bg-brand-500 px-7 py-3.5 text-sm font-semibold text-white shadow-md transition-colors hover:bg-brand-600"
+        >
+          {t("cta.askWhatsapp")}
+        </a>
+      </div>
+      <img src="/hero-bed.svg" alt={t("about.title")} class="w-full rounded-3xl shadow-[var(--shadow-soft)]" />
+    </div>
+  </section>
+
+  <section class="container-soft py-16">
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        advantages.map((k) => (
+          <div class="rounded-2xl border border-brand-100 bg-white p-6 shadow-sm">
+            <h3 class="text-base font-bold text-brand-900">{t(`adv.${k}.title` as any)}</h3>
+            <p class="mt-2 text-sm text-brand-700/80">{t(`adv.${k}.desc` as any)}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+</Layout>

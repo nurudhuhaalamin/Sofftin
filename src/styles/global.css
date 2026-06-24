@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+/* ============================================================
+   Sistem Desain Softtin
+   Warna brand diambil dari mockup: biru langit yang bersih,
+   latar putih lapang, footer biru tua (kesan hotel mewah).
+   ============================================================ */
+@theme {
+  /* Biru utama brand */
+  --color-brand-50: #eff8ff;
+  --color-brand-100: #dbeefe;
+  --color-brand-200: #bfe2fe;
+  --color-brand-300: #93d0fd;
+  --color-brand-400: #60b4fa;
+  --color-brand-500: #3da0f0;
+  --color-brand-600: #2a82d6;
+  --color-brand-700: #2369ad;
+  --color-brand-800: #22588d;
+  --color-brand-900: #1e3a5f;
+  --color-brand-950: #16243a;
+
+  /* Font */
+  --font-sans: "Plus Jakarta Sans", "Segoe UI", system-ui, sans-serif;
+
+  /* Bayangan lembut untuk kartu */
+  --shadow-soft: 0 10px 30px -12px rgb(30 58 95 / 0.18);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+}
+
+/* Kontainer standar */
+.container-soft {
+  width: 100%;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+}
