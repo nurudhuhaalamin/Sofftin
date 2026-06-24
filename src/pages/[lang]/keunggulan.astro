@@ -1,0 +1,79 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getLang, useTranslations } from "../../i18n/utils";
+import { waLink } from "../../config";
+import { ui } from "../../i18n/ui";
+
+export function getStaticPaths() {
+  return [{ params: { lang: "id" } }, { params: { lang: "en" } }];
+}
+
+const lang = getLang(Astro.params.lang);
+const t = useTranslations(lang);
+const orderHref = waLink(ui[lang]["wa.general"]);
+
+const advantages = [
+  { key: "1", icon: "foam" },
+  { key: "2", icon: "shield" },
+  { key: "3", icon: "star" },
+  { key: "4", icon: "support" },
+  { key: "5", icon: "gem" },
+] as const;
+---
+
+<Layout lang={lang} title={t("adv.title")} description={t("adv.subtitle")}>
+  <!-- Header halaman -->
+  <section class="bg-gradient-to-b from-brand-50 to-white">
+    <div class="container-soft py-14 text-center md:py-20">
+      <span class="inline-block rounded-full bg-brand-100 px-4 py-1.5 text-xs font-bold tracking-wider text-brand-700">
+        {t("hero.badge")}
+      </span>
+      <h1 class="mx-auto mt-5 max-w-3xl text-3xl font-extrabold text-brand-900 md:text-4xl">
+        {t("adv.title")}
+      </h1>
+      <p class="mx-auto mt-3 max-w-xl text-brand-700/80">{t("adv.subtitle")}</p>
+    </div>
+  </section>
+
+  <!-- Daftar keunggulan -->
+  <section class="container-soft py-14 md:py-16">
+    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        advantages.map((a) => (
+          <div class="rounded-3xl border border-brand-100 bg-white p-7 shadow-sm">
+            <div class="flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-50 text-brand-500">
+              {a.icon === "foam" && (
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="18" height="9" rx="4"/><path d="M6 8V7a3 3 0 0 1 3-3h6a3 3 0 0 1 3 3v1"/></svg>
+              )}
+              {a.icon === "shield" && (
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg>
+              )}
+              {a.icon === "star" && (
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9 6.8 19.2l1-5.8L3.5 9.2l5.9-.9z"/></svg>
+              )}
+              {a.icon === "support" && (
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12a8 8 0 0 1 16 0v4a3 3 0 0 1-3 3h-1"/><rect x="3" y="12" width="4" height="6" rx="1.5"/><rect x="17" y="12" width="4" height="6" rx="1.5"/></svg>
+              )}
+              {a.icon === "gem" && (
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l3 5-9 13L3 8z"/><path d="M3 8h18M9 3l-2 5 5 13 5-13-2-5"/></svg>
+              )}
+            </div>
+            <h2 class="mt-5 text-lg font-bold text-brand-900">{t(`adv.${a.key}.title` as any)}</h2>
+            <p class="mt-2 text-sm leading-relaxed text-brand-700/80">{t(`adv.${a.key}.desc` as any)}</p>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="mt-12 text-center">
+      <a
+        href={orderHref}
+        target="_blank"
+        rel="noopener"
+        class="inline-block rounded-full bg-brand-500 px-8 py-3.5 text-sm font-semibold text-white shadow-md transition-colors hover:bg-brand-600"
+      >
+        {t("cta.askWhatsapp")}
+      </a>
+    </div>
+  </section>
+</Layout>
