@@ -1,0 +1,3 @@
+# Redirect root ke versi Bahasa Indonesia (default) secara instan di edge Cloudflare.
+# Menghindari halaman "Redirecting…" bawaan Astro yang berjeda 2 detik.
+/    /id/    301

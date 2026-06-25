@@ -4,9 +4,8 @@ import tailwindcss from "@tailwindcss/vite";
 
 // https://astro.build/config
 export default defineConfig({
-  // Diisi dengan URL final saat domain dipasang. Untuk Cloudflare Pages,
-  // boleh dibiarkan; sesuaikan jika perlu sitemap absolut.
-  site: "https://softtin.pages.dev",
+  // URL final situs (domain terpasang) — dipakai untuk canonical & sitemap.
+  site: "https://softtin.id",
   // Situs statis penuh — paling cepat & gratis di Cloudflare Pages.
   output: "static",
   i18n: {
