@@ -30,15 +30,15 @@ export const ui = {
     "common.allCategories": "Semua",
 
     // Hero
-    "hero.badge": "TIDUR SEHAT, TOPANGAN TEPAT",
-    "hero.title": "Topangan Tepat, Tidur Berkualitas",
+    "hero.badge": "DESAIN ERGONOMIS UNTUK TIDUR BERKUALITAS",
+    "hero.title": "Tidur Berkualitas, Tubuh Lebih Sehat",
     "hero.subtitle":
-      "Softtin menghadirkan bantal dan guling memory foam yang dirancang secara ergonomis untuk menyangga leher dan tulang belakang Anda — membantu meredakan pegal dan menghadirkan istirahat yang benar-benar memulihkan, malam demi malam.",
+      "Softtin menghadirkan bantal dan guling memory foam yang dirancang secara ergonomis untuk menjaga leher dan tulang belakang Anda tetap sejajar — membantu meredakan pegal dan menghadirkan istirahat yang benar-benar memulihkan, malam demi malam.",
 
     // Keunggulan
     "adv.title": "Kenapa Memilih Softtin",
-    "adv.subtitle": "Setiap produk kami dirancang dengan prinsip ergonomis untuk menyangga tubuh dan menghadirkan istirahat yang memulihkan.",
-    "adv.1.title": "Topangan Mengikuti Tubuh",
+    "adv.subtitle": "Setiap produk kami dirancang dengan prinsip ergonomis untuk menjaga posisi tubuh tetap sehat dan menghadirkan istirahat yang memulihkan.",
+    "adv.1.title": "Mengikuti Lekuk Tubuh",
     "adv.1.desc": "Memory foam mengikuti lekuk kepala dan leher, menjaga tulang belakang tetap sejajar sepanjang malam.",
     "adv.2.title": "Meredakan Titik Tekan",
     "adv.2.desc": "Tekanan tubuh terdistribusi merata sehingga otot leher dan bahu rileks — bangun terasa segar tanpa pegal.",
@@ -53,7 +53,7 @@ export const ui = {
     "products.featuredLabel": "PRODUK UNGGULAN",
     "products.featuredTitle": "Bantal & Guling Memory Foam Premium",
     "products.featuredSubtitle":
-      "Dirancang dari memory foam berkualitas tinggi untuk menyangga tubuh dengan tepat — membantu Anda tidur lebih nyenyak setiap malam.",
+      "Dirancang dari memory foam berkualitas tinggi yang mengikuti lekuk tubuh — membantu Anda tidur lebih nyenyak setiap malam.",
     "products.allTitle": "Semua Produk",
     "products.allSubtitle": "Pilih produk yang paling sesuai dengan kebutuhan tidur Anda.",
     "products.empty": "Belum ada produk pada kategori ini.",
@@ -75,7 +75,7 @@ export const ui = {
     // Tentang (company profile)
     "about.title": "Tentang Softtin",
     "about.body":
-      "Softtin adalah brand perlengkapan tidur yang berfokus pada kesehatan dan kenyamanan istirahat Anda. Kami percaya tidur yang berkualitas adalah fondasi hari yang produktif — dan semua itu berawal dari topangan yang tepat. Karena itu, kami mengembangkan bantal dan guling memory foam yang dirancang secara ergonomis, dibuat dari material berkualitas yang higienis dan tahan lama, untuk membantu menjaga kesejajaran tubuh dan meredakan titik tekan sepanjang malam.",
+      "Softtin adalah brand perlengkapan tidur yang berfokus pada kesehatan dan kenyamanan istirahat Anda. Kami percaya tidur yang berkualitas adalah fondasi hari yang produktif — dan semua itu berawal dari kenyamanan dan posisi tubuh yang tepat saat beristirahat. Karena itu, kami mengembangkan bantal dan guling memory foam yang dirancang secara ergonomis, dibuat dari material berkualitas yang higienis dan tahan lama, untuk membantu menjaga kesejajaran tubuh dan meredakan titik tekan sepanjang malam.",
     "about.visionTitle": "Visi",
     "about.vision":
       "Menjadi brand perlengkapan tidur tepercaya yang membantu setiap keluarga Indonesia menikmati tidur yang sehat dan berkualitas.",
@@ -100,7 +100,7 @@ export const ui = {
     "contact.locationLabel": "Lokasi",
 
     // Footer
-    "footer.tagline": "Topangan tepat untuk tidur berkualitas.",
+    "footer.tagline": "Desain ergonomis untuk tidur berkualitas.",
     "footer.menu": "Menu",
     "footer.products": "Produk",
     "footer.contact": "Kontak",
@@ -130,15 +130,15 @@ export const ui = {
     "common.allCategories": "All",
 
     // Hero
-    "hero.badge": "HEALTHY SLEEP, PROPER SUPPORT",
-    "hero.title": "Proper Support, Quality Sleep",
+    "hero.badge": "ERGONOMIC DESIGN FOR QUALITY SLEEP",
+    "hero.title": "Quality Sleep, a Healthier Body",
     "hero.subtitle":
-      "Softtin offers ergonomically designed memory foam pillows and bolsters that support your neck and spine — helping relieve aches and deliver truly restorative rest, night after night.",
+      "Softtin offers ergonomically designed memory foam pillows and bolsters that keep your neck and spine properly aligned — helping relieve aches and deliver truly restorative rest, night after night.",
 
     // Advantages
     "adv.title": "Why Choose Softtin",
-    "adv.subtitle": "Every product is engineered on ergonomic principles to support your body and deliver truly restorative rest.",
-    "adv.1.title": "Body-Contouring Support",
+    "adv.subtitle": "Every product is engineered on ergonomic principles to keep your body properly aligned and deliver truly restorative rest.",
+    "adv.1.title": "Follows Your Body's Contours",
     "adv.1.desc": "Memory foam follows the curve of your head and neck, keeping your spine aligned all night.",
     "adv.2.title": "Pressure-Point Relief",
     "adv.2.desc": "Weight is distributed evenly so neck and shoulder muscles relax — wake up fresh, not stiff.",
@@ -153,7 +153,7 @@ export const ui = {
     "products.featuredLabel": "FEATURED PRODUCTS",
     "products.featuredTitle": "Premium Memory Foam Pillows & Bolsters",
     "products.featuredSubtitle":
-      "Engineered from high-quality memory foam to support your body precisely — for deeper sleep every night.",
+      "Engineered from high-quality memory foam that follows your body's contours — for deeper sleep every night.",
     "products.allTitle": "All Products",
     "products.allSubtitle": "Choose the product that best fits your sleep needs.",
     "products.empty": "No products in this category yet.",
@@ -175,7 +175,7 @@ export const ui = {
     // About (company profile)
     "about.title": "About Softtin",
     "about.body":
-      "Softtin is a sleep essentials brand focused on the health and comfort of your rest. We believe quality sleep is the foundation of a productive day — and it all begins with proper support. That is why we develop ergonomically designed memory foam pillows and bolsters, made from quality materials that are hygienic and durable, to help keep your body aligned and relieve pressure points all night long.",
+      "Softtin is a sleep essentials brand focused on the health and comfort of your rest. We believe quality sleep is the foundation of a productive day — and it all begins with the right comfort and sleeping posture. That is why we develop ergonomically designed memory foam pillows and bolsters, made from quality materials that are hygienic and durable, to help keep your body aligned and relieve pressure points all night long.",
     "about.visionTitle": "Vision",
     "about.vision":
       "To become a trusted sleep essentials brand that helps every Indonesian family enjoy healthy, quality sleep.",
@@ -199,7 +199,7 @@ export const ui = {
     "contact.locationLabel": "Location",
 
     // Footer
-    "footer.tagline": "Proper support for quality sleep.",
+    "footer.tagline": "Ergonomic design for quality sleep.",
     "footer.menu": "Menu",
     "footer.products": "Products",
     "footer.contact": "Contact",
