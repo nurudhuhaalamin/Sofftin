@@ -1,6 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { getLang, useTranslations, localizePath } from "../../i18n/utils";
+import { getLang, useTranslations } from "../../i18n/utils";
 import { waLink } from "../../config";
 import { ui } from "../../i18n/ui";
 
@@ -12,10 +12,16 @@ const lang = getLang(Astro.params.lang);
 const t = useTranslations(lang);
 const orderHref = waLink(ui[lang]["wa.general"]);
 
-const advantages = ["1", "2", "3", "4"] as const;
+const missions = ["about.mission1", "about.mission2", "about.mission3"] as const;
+const values = [
+  { key: "1", icon: "gem" },
+  { key: "2", icon: "shield" },
+  { key: "3", icon: "heart" },
+] as const;
 ---
 
 <Layout lang={lang} title={t("about.title")} description={t("about.body")}>
+  <!-- Intro / perkenalan perusahaan -->
   <section class="bg-gradient-to-b from-brand-50 to-white">
     <div class="container-soft grid items-center gap-10 py-14 md:py-20 lg:grid-cols-2">
       <div>
@@ -34,13 +40,55 @@ const advantages = ["1", "2", "3", "4"] as const;
     </div>
   </section>
 
-  <section class="container-soft py-16">
-    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+  <!-- Visi & Misi -->
+  <section class="container-soft py-14 md:py-16">
+    <div class="grid gap-6 md:grid-cols-2">
+      <!-- Visi -->
+      <div class="rounded-3xl bg-gradient-to-br from-brand-600 to-brand-800 p-8 text-white md:p-10">
+        <h2 class="text-xl font-extrabold md:text-2xl">{t("about.visionTitle")}</h2>
+        <p class="mt-4 leading-relaxed text-brand-100">{t("about.vision")}</p>
+      </div>
+      <!-- Misi -->
+      <div class="rounded-3xl border border-brand-100 bg-white p-8 shadow-sm md:p-10">
+        <h2 class="text-xl font-extrabold text-brand-900 md:text-2xl">{t("about.missionTitle")}</h2>
+        <ul class="mt-4 space-y-3">
+          {
+            missions.map((m) => (
+              <li class="flex gap-3">
+                <span class="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand-50 text-brand-500">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg>
+                </span>
+                <span class="text-sm leading-relaxed text-brand-800/90">{t(m as any)}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Nilai Kami -->
+  <section class="container-soft pb-16 md:pb-24">
+    <div class="mx-auto max-w-2xl text-center">
+      <h2 class="text-2xl font-extrabold text-brand-900 md:text-3xl">{t("about.valuesTitle")}</h2>
+    </div>
+    <div class="mt-10 grid gap-6 sm:grid-cols-3">
       {
-        advantages.map((k) => (
-          <div class="rounded-2xl border border-brand-100 bg-white p-6 shadow-sm">
-            <h3 class="text-base font-bold text-brand-900">{t(`adv.${k}.title` as any)}</h3>
-            <p class="mt-2 text-sm text-brand-700/80">{t(`adv.${k}.desc` as any)}</p>
+        values.map((v) => (
+          <div class="rounded-3xl border border-brand-100 bg-white p-7 text-center shadow-sm">
+            <div class="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-50 text-brand-500">
+              {v.icon === "gem" && (
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l3 5-9 13L3 8z"/><path d="M3 8h18M9 3l-2 5 5 13 5-13-2-5"/></svg>
+              )}
+              {v.icon === "shield" && (
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="M9.5 12l1.8 1.8L15 10"/></svg>
+              )}
+              {v.icon === "heart" && (
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20s-7-4.3-9.5-8.2C1 9 2 5.5 5.3 5.5c2 0 3.3 1.4 3.7 2.5.4-1.1 1.7-2.5 3.7-2.5C16 5.5 17 9 15.5 11.8 13 15.7 12 20 12 20z"/></svg>
+              )}
+            </div>
+            <h3 class="mt-5 text-lg font-bold text-brand-900">{t(`about.value${v.key}.title` as any)}</h3>
+            <p class="mt-2 text-sm leading-relaxed text-brand-700/80">{t(`about.value${v.key}.desc` as any)}</p>
           </div>
         ))
       }
